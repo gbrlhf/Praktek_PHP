@@ -3,45 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pembayaran Kalkinawa</title>
+  <title>Latihan 3</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h2>Latihan IF Pilihan</h2>
-    <p>Makanan apa yang anda pesan ?</p>
-    <ul>
-      <li>1. Sushi</li>
-      <li>2. Ramen</li>
-      <li>3. Hamburger</li>
-      <li>4. French Fries</li>
-      <li>5. Gordon Blue</li>
-    </ul>
-
+    <h2>Pembayaran Makanan</h2>
     <form method="post">
-      <label>Tulis Nomor yang anda pilih</label>
-      <input type="number" name="pilihan" required>
-      <button type="submit">Pilih</button>
+      <label>Nasi Goreng</label>
+      <input type="number" name="NasiGoreng" min="0" value="<?= isset($_POST['NasiGoreng']) ? $_POST['NasiGoreng'] : 0 ?>">
+
+      <label>Mie Ayam</label>
+      <input type="number" name="MieAyam" min="0" value="<?= isset($_POST['MieAyam']) ? $_POST['MieAyam'] : 0 ?>">
+
+      <label>Indomie</label>
+      <input type="number" name="Indomie" min="0" value="<?= isset($_POST['Indomie']) ? $_POST['Indomie'] : 0 ?>">
+
+      <label>Es Teh</label>
+      <input type="number" name="EsTeh" min="0" value="<?= isset($_POST['EsTeh']) ? $_POST['EsTeh'] : 0 ?>">
+
+      <label>Kopi</label>
+      <input type="number" name="Kopi" min="0" value="<?= isset($_POST['Kopi']) ? $_POST['Kopi'] : 0 ?>">
+
+      <button type="submit" name="hitung">Hitung</button>
     </form>
 
     <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $pilihan = $_POST['pilihan'];
+    if (isset($_POST['hitung'])) {
+      
+        $hargaNasiGoreng = 15000;
+        $hargaMieAyam    = 10000;
+        $hargaIndomie    = 12000;
+        $hargaEsTeh      = 5000;
+        $hargaKopi       = 7000;
 
+        $NasiGoreng = $_POST['NasiGoreng'];
+        $MieAyam    = $_POST['MieAyam'];
+        $Indomie    = $_POST['Indomie'];
+        $EsTeh      = $_POST['EsTeh'];
+        $Kopi       = $_POST['Kopi'];
+
+        $total = 0;
         echo "<div class='hasil'>";
-        if ($pilihan == 1) {
-            echo "<p>Anda memilih <strong>Sushi</strong> dengan harga Rp. 30.000</p>";
-        } elseif ($pilihan == 2) {
-            echo "<p>Anda memilih <strong>Ramen</strong> dengan harga Rp. 50.000</p>";
-        } elseif ($pilihan == 3) {
-            echo "<p>Anda memilih <strong>Hamburger</strong> dengan harga Rp. 90.000</p>";
-        } elseif ($pilihan == 4) {
-            echo "<p>Anda memilih <strong>French Fries</strong> dengan harga Rp. 35.000</p>";
-        } elseif ($pilihan == 5) {
-            echo "<p>Anda memilih <strong>Gordon Blue</strong> dengan harga Rp. 70.000</p>";
-        } else {
-            echo "<p>Pilihan tidak valid. Silakan pilih antara 1 sampai 5.</p>";
+        echo "<h3>Detail Pembayaran:</h3>";
+
+        if ($NasiGoreng > 0) {
+            $subtotal = $NasiGoreng * $hargaNasiGoreng;
+            echo "<p>Nasi Goreng ($NasiGoreng x Rp " . number_format($hargaNasiGoreng,0,",",".") . ") = Rp " . number_format($subtotal,0,",",".") . "</p>";
+            $total += $subtotal;
         }
+
+        if ($MieAyam > 0) {
+            $subtotal = $MieAyam * $hargaMieAyam;
+            echo "<p>Mie Ayam ($MieAyam x Rp " . number_format($hargaMieAyam,0,",",".") . ") = Rp " . number_format($subtotal,0,",",".") . "</p>";
+            $total += $subtotal;
+        }
+
+        if ($Indomie > 0) {
+            $subtotal = $Indomie * $hargaIndomie;
+            echo "<p>Indomie ($Indomie x Rp " . number_format($hargaIndomie,0,",",".") . ") = Rp " . number_format($subtotal,0,",",".") . "</p>";
+            $total += $subtotal;
+        }
+
+        if ($EsTeh > 0) {
+            $subtotal = $EsTeh * $hargaEsTeh;
+            echo "<p>Es Teh ($EsTeh x Rp " . number_format($hargaEsTeh,0,",",".") . ") = Rp " . number_format($subtotal,0,",",".") . "</p>";
+            $total += $subtotal;
+        }
+
+        if ($Kopi > 0) {
+            $subtotal = $Kopi * $hargaKopi;
+            echo "<p>Kopi ($Kopi x Rp " . number_format($hargaKopi,0,",",".") . ") = Rp " . number_format($subtotal,0,",",".") . "</p>";
+            $total += $subtotal;
+        }
+
+        if ($total == 0) {
+            echo "<p>Tidak ada pesanan.</p>";
+        } else {
+            echo "<h3>Total Bayar: Rp " . number_format($total,0,",",".") . "</h3>";
+        }
+
         echo "</div>";
     }
     ?>

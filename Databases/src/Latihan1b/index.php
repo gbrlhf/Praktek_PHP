@@ -39,11 +39,11 @@
 
     <h2>Social Media</h2>
     <a href="https://www.instagram.com/gbrlhf?igsh=bTRtNW9sZmhrd3Jh">
-      <img class="Instagram" src="/Pict/IG.jpeg" alt="Instagram" />@gbrlhf<br />
+      <img class="Instagram" src="Pict/IG.jpeg" alt="Instagram" />@gbrlhf<br />
     </a>
 
     <a href="https://www.linkedin.com/in/gibral-haikal-faiz-46449a319/">
-      <img class="LinkedIn" src="/Pict/linkedin.jpeg" alt="LinkedIn" /><?= $nama ?>
+      <img class="LinkedIn" src="Pict/linkedin.jpeg" alt="LinkedIn" /><?= $nama ?>
     </a>
 
     <h2>Hobi</h2>

@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="container">
-    <h2>Kalkulator Aritmatika Sederhana</h2>
+    <h2>Kalkulator Aritmatika</h2>
     <form method="post">
       <label>Angka 1:</label>
       <input type="number" name="angka1" required value="<?= isset($_POST['angka1']) ? $_POST['angka1'] : '' ?>">
