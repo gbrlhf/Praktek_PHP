@@ -10,7 +10,7 @@
     <h2>Menghitung Luas Bangun Datar</h2>
 
     <?php
-    // jika belum pilih bangun
+    
     if (!isset($_GET['bangun'])) {
         echo "
         <div class='menu'>
