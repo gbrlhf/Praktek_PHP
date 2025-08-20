@@ -1,0 +1,60 @@
+.efek-foto {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease-in-out;
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+  border-radius: 180px;
+}
+
+.efek-foto:hover {
+  filter: grayscale(0%);
+}
+
+.Nama {
+  text-align: left;
+  font-size: 40px;
+  color: #020202;
+  margin-top: 20px;
+}
+
+.deskripsi{
+  text-align: left;
+  font-size: 15px;
+  color: #000000;
+  margin-top: -20px;
+  margin-bottom: 50px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+table th,
+table td {
+  border: 1px solid #4a4747;
+  text-align: left;
+  padding: 8px;
+}
+
+table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.Instagram{
+width: 60px;
+height: 60px;
+margin-right: 10px;
+border-radius: 180%;
+}
+
+
+.LinkedIn {
+  width: 65px;
+  height: 65px;
+  margin-right: 10px;
+  border-radius: 180%;
+}
